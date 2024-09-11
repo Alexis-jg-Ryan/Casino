@@ -84,3 +84,50 @@ body {
     color: #00FF00;
     font-size: 30px;
 }
+#get-credits {
+    align-items: center;
+    background-clip: padding-box;
+    background-color: #ff0000;
+    border: 1px solid transparent;
+    border-radius: .25rem;
+    box-shadow: rgba(0, 0, 0, 0.02) 0 1px 3px 0;
+    box-sizing: border-box;
+    color: #fff;
+    cursor: pointer;
+    display: inline-flex;
+    font-family: system-ui, -apple-system, system-ui, "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 14px; /* Reduced font size */
+    font-weight: 600;
+    justify-content: center;
+    line-height: 1.2; /* Adjust line-height if necessary */
+    margin: 0;
+    margin-top: 5px;
+    min-height: 2rem; /* Reduced min-height */
+    padding: calc(.5rem - 1px) calc(1rem - 1px); /* Reduced padding */
+    position: absolute; /* Changed from relative to absolute */
+    left: 310px; /* Aligns to the left edge of the parent */
+    z-index: 10; /* Added z-index to ensure it is on top */
+    text-decoration: none;
+    transition: all 250ms;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    vertical-align: baseline;
+    width: auto;
+}
+
+#get-credits:hover,
+#get-credits:focus {
+    background-color: #ff2020;
+    box-shadow: rgba(0, 0, 0, 0.1) 0 4px 12px;
+}
+
+#get-credits:hover {
+    transform: translateY(-1px);
+}
+
+#get-credits:active {
+    background-color: #c85000;
+    box-shadow: rgba(0, 0, 0, .06) 0 2px 4px;
+    transform: translateY(0);
+}

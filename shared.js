@@ -1,6 +1,6 @@
 const getCredits = () => {
     // Try to get from localStorage, default to 500 if not present
-    return parseInt(localStorage.getItem('credits')) || 500;
+    return parseInt(localStorage.getItem('credits'));
 };
 
 const setCredits = (newCredits) => {
