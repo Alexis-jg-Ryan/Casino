@@ -316,7 +316,7 @@ function stay(){
     }else if(dealerSum > 21){ 
         message = "dealer went over !";
         liveCredits += currentbet;
-        setCredits(liveCredits);
+        setCredits(liveCredits); 
         console.log(liveCredits);
     }else if(yourSum == dealerSum){
         message = "Push!";
