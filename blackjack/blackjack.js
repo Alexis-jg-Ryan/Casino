@@ -248,24 +248,12 @@ function dealerBlackjack(){
 }
 
 function blackjack(){
-    while(dealerSum < 17){
-        let cardImg = document.createElement("img");
-        let card = deck.pop();
-        cardImg.src = "./Flat-Playing-Cards-Set/"+ card + ".png";
-        dealerSum += getValue(card);
-        dealerAceCount += checkAce(card);
-        document.getElementById("dealer-cards").append(cardImg);
-    }
-
-    dealerSum = reduceAce(dealerSum, dealerAceCount);
     yourSum = reduceAce(yourSum, yourAceCount);
 
     canHit = false;
-    document.getElementById("hidden").src = "./Flat-Playing-Cards-Set/" + hidden + ".png";
 
     let message = "BlackJack! !";
     document.getElementById("results").innerText = message;
-    document.getElementById("dealer-sum").innerText = dealerSum;
     document.getElementById("your-sum").innerText = yourSum;
 
     document.getElementById("hit").removeEventListener("click", hit);
@@ -292,6 +280,7 @@ function stay(){
         dealerSum += getValue(card);
         dealerAceCount += checkAce(card);
         document.getElementById("dealer-cards").append(cardImg);
+        dealerSum = reduceAce(dealerSum, dealerAceCount);
     }
 
     dealerSum = reduceAce(dealerSum, dealerAceCount);
