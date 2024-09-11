@@ -310,7 +310,7 @@ function stay(){
         message = "You Win !"
         liveCredits += currentbet;
         setCredits(liveCredits);
-        console.log(liveCredits);
+        console.log(liveCredits); 
     }else if(yourSum == 21 && dealerSum == 21){
         message = "Push !"
     }else if(dealerSum > 21){
