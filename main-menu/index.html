@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alexis Casino!</title>
+    <link rel="stylesheet" href="styles.css">
+    <script type="module" src="main-menu.js"></script>
+</head>
+<body>
+    <div id="middle">
+        <h1><span id="welcome-label">Welcome to my casino !</span></h1>
+        <p id="credits-label">Credits: <span id="credits"></span></p>
+        <h2 id="choice-label">What do you want to play ?</h2>
+        <div id="games">
+            <div id="blackjack" class="game-container">
+                <a href="./../blackjack/blackjack.html">
+                    <button id="blackjack-button">BlackJack!</button>
+                    <img src="cards.png" id="cards-img">
+                </a>
+            </div>
+            <div id="lucky-dice" class="game-container">
+                <a href="./../lucky-dice/lucky-dice.html">
+                    <button id="lucky-dice-button">Lucky Dice!</button>
+                    <img src="dices.png" id="dices-img">
+                </a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
