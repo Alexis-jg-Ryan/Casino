@@ -52,6 +52,8 @@ function buildVisuals(){
     tempImg4.src = "./Flat-Playing-Cards-Set/back.png";
     document.getElementById("your-cards").append(tempImg4);
     tempImg4.id = "tempimg4"
+
+    
 }
 
 function bet50() {
@@ -77,12 +79,17 @@ function betAllIn() {
 function choosebet(){
 
     // Add event listeners
-    document.getElementById("bet50").addEventListener("click", bet50);
-    document.getElementById("bet150").addEventListener("click", bet150);
-    document.getElementById("bet250").addEventListener("click", bet250);
-    document.getElementById("betAllIn").addEventListener("click", betAllIn);
-    document.getElementById('numberInput').addEventListener('change', verifyBet);
-
+    if (liveCredits >= 50){
+        document.getElementById("bet50").addEventListener("click", bet50);
+    }
+    if(liveCredits >= 150){
+        document.getElementById("bet150").addEventListener("click", bet150);
+    }if(liveCredits >= 250){
+        document.getElementById("bet250").addEventListener("click", bet250);
+    }if(liveCredits > 0){
+        document.getElementById("betAllIn").addEventListener("click", betAllIn);
+        document.getElementById('numberInput').addEventListener('change', verifyBet);
+    }
 
     document.getElementById('hit').style.visibility = 'hidden';
     document.getElementById('stay').style.visibility = 'hidden';
@@ -137,6 +144,17 @@ function startGame(){
     document.getElementById('hit').style.visibility = 'visible';
     document.getElementById('stay').style.visibility = 'visible';
     document.getElementById('restart').style.visibility = 'visible';
+
+    //make them grey when disabled or invisible
+    document.getElementById('bet50').style.visibility = 'hidden';
+    document.getElementById('bet150').style.visibility = 'hidden';
+    document.getElementById('bet250').style.visibility = 'hidden';
+    document.getElementById('betAllIn').style.visibility = 'hidden';
+    document.getElementById('numberInput').style.visibility = 'hidden'; //broken
+
+
+
+
 
     document.getElementById('bet-ammount').innerText = currentbet;
 
@@ -213,6 +231,10 @@ function bothBlackjack(){
     document.getElementById("betAllIn").removeEventListener("click", betAllIn);
     document.getElementById('numberInput').removeEventListener('change', verifyBet);
 
+    document.getElementById('hit').style.visibility = 'hidden';
+    document.getElementById('stay').style.visibility = 'hidden';
+
+
 }
 function dealerBlackjack(){
     while(dealerSum < 17){
@@ -223,6 +245,8 @@ function dealerBlackjack(){
         dealerAceCount += checkAce(card);
         document.getElementById("dealer-cards").append(cardImg);
     }
+
+    let message="Dealer Blackjack :("
     
     document.getElementById("results").innerText = message;
     document.getElementById("dealer-sum").innerText = dealerSum;
@@ -242,6 +266,9 @@ function dealerBlackjack(){
     document.getElementById("bet250").removeEventListener("click", bet250);
     document.getElementById("betAllIn").removeEventListener("click", betAllIn);
     document.getElementById('numberInput').removeEventListener('change', verifyBet);
+
+    document.getElementById('hit').style.visibility = 'hidden';
+    document.getElementById('stay').style.visibility = 'hidden';
 
     liveCredits -= currentbet;
     setCredits(liveCredits);
@@ -264,6 +291,9 @@ function blackjack(){
     document.getElementById("bet250").removeEventListener("click", bet250);
     document.getElementById("betAllIn").removeEventListener("click", betAllIn);
     document.getElementById('numberInput').removeEventListener('change', verifyBet);
+    document.getElementById('hit').style.visibility = 'hidden';
+    document.getElementById('stay').style.visibility = 'hidden';
+
     liveCredits += currentbet*1.25;
     setCredits(liveCredits);
     console.log(liveCredits);
@@ -327,6 +357,10 @@ function stay(){
     document.getElementById("bet250").removeEventListener("click", bet250);
     document.getElementById("betAllIn").removeEventListener("click", betAllIn);
     document.getElementById('numberInput').removeEventListener('change', verifyBet);
+
+    document.getElementById('hit').style.visibility = 'hidden';
+    document.getElementById('stay').style.visibility = 'hidden';
+
 }
 
 function hit() {
@@ -368,6 +402,10 @@ function bust(){
     document.getElementById("bet250").removeEventListener("click", bet250);
     document.getElementById("betAllIn").removeEventListener("click", betAllIn);
     document.getElementById('numberInput').removeEventListener('change', verifyBet);
+    
+    document.getElementById('hit').style.visibility = 'hidden';
+    document.getElementById('stay').style.visibility = 'hidden';
+
     let message = "You busted !";
     document.getElementById("results").innerText = message;
     document.getElementById("your-sum").innerText = reduceAce(yourSum, yourAceCount);
