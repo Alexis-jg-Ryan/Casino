@@ -97,6 +97,7 @@ function verifyBet(){
         input.placeholder = "Invalid !!!";
         choosebet();
     }else{
+        currentbet = input.value;
         startGame();
     }
 }
