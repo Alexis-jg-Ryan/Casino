@@ -76,28 +76,28 @@ body, html {
 .right {
     flex: 0 0 45%; /* 45% of the container width */
 }
-.die1, .die2, .die3{
+#die1, #die2, #die3{
     width: 200;
     height: 200px;
     background-color: white;
     border: 6px solid black;
 }
 
-.die1{
+#die1{
     position: absolute;
     top: 10vh; /* Adjusted from fixed pixels to viewport height */
     right: 20vw; /* Adjusted from fixed pixels to viewport width */
     transform: rotate(-45deg);
 }
 
-.die2{
+#die2{
     position: absolute;
     top: 40vh; /* Adjusted from fixed pixels to viewport height */
     right: 5vw; /* Adjusted from fixed pixels to viewport width */
     transform: rotate(31deg);
 }
 
-.die3{
+#die3{
     position: absolute;
     top: 55vh; /* Adjusted from fixed pixels to viewport height */
     right: 24vw; /* Adjusted from fixed pixels to viewport width */
