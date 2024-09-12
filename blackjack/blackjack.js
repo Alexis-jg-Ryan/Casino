@@ -174,8 +174,8 @@ function startGame(){
     document.getElementById("stay").addEventListener("click", stay);
     document.getElementById("restart").addEventListener("click", restart);
     
-
-    if(yourSum && dealerSum == 21){
+    
+    if(yourSum == 21 && dealerSum == 21){
         bothBlackjack();
     }
     else if(yourSum == 21){
@@ -229,7 +229,7 @@ function dealerBlackjack(){
     canHit = false;
     document.getElementById("hidden").src = "./Flat-Playing-Cards-Set/" + hidden + ".png";
 
-    let message = "Dealer got BlackJack! !";
+    message = "Dealer got BlackJack! !";
     document.getElementById("results").innerText = message;
     document.getElementById("dealer-sum").innerText = dealerSum;
     document.getElementById("your-sum").innerText = yourSum;
