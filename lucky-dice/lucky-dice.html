@@ -4,11 +4,38 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lucky Dice!</title>
-    <link rel="icon" type="image/x-icon" href="../main-menu/dices.png">
     <link rel="stylesheet" href="styles.css">
     <script type="module" src="lucky-dice.js"></script>
 </head>
 <body>
-    
+    <div class="container">
+        <div class="left">
+            <div class="grid-container">
+                <div class="grid-item"><img id="grid-img" src="./dice-faces/car.png"></div>
+                <div class="grid-item"><img id="grid-img" src="./dice-faces/cop.png"></div>
+                <div class="grid-item"><img id="grid-img" src="./dice-faces/faucet.png"></div>
+                <div class="grid-item"><img id="grid-img" src="./dice-faces/lightbulb.png"></div>
+                <div class="grid-item"><img id="grid-img" src="./dice-faces/ring.png"></div>
+                <div class="grid-item"><img id="grid-img" src="./dice-faces/train.png"></div>
+              </div>
+        </div>
+        <div class="middle">
+            <label id="lblCredits">Credits:<span id="credit-ammount"></span></label>
+            <label id="lblBet">Current Bet:<span id="bet-ammount"></span></label>
+            <button id="menu-btn">Menu</button>
+            <button id="roll-btn">Roll</button>
+            <button id="restart-btn">Restart</button>
+            <button id="bet50">Bet 50</button>
+            <button id="bet150">Bet 150</button>
+            <button id="bet250">Bet 250</button>
+            <button id="betAllIn">ALL IN</button>
+            <input type="number" id="numberInput" placeholder="Custom Bet">
+        </div>
+        <div class="right">
+            <img class="die1"src="dice-faces/car.png">
+            <img class="die2"src="dice-faces/cop.png">
+            <img class="die3"src="dice-faces/train.png">
+        </div>
+    </div>
 </body>
 </html>

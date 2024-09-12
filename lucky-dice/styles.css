@@ -1,0 +1,214 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    overflow: hidden; /* Prevents scroll bars from appearing */
+    background-image: url("./casino-table.jpg");
+}
+
+.left {
+    flex: 0 0 45%; /* Takes 45% of the container's width */
+    display: flex;
+    justify-content: center; /* Center the grid horizontally */
+    align-items: center; /* Center the grid vertically */
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(2, 150px); /* 2 columns of 150px each */
+    grid-template-rows: repeat(3, 150px); /* 3 rows of 150px each */
+    gap: 30px; /* Remove gap between grid items */
+    width: 300px; /* Adjust width to fit the number of columns */
+    height: 450px; /* Adjust height to fit the number of rows */
+    margin-top: -40px; /* Adjust this value to move the grid higher */
+}
+
+/* Style for each grid item */
+.grid-item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 8px solid #000; /* Border for grid items */
+    box-sizing: border-box;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.grid-item img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain; /* Ensure the image scales to fit within the container while maintaining its aspect ratio */
+    background-color: darkblue;
+}
+
+.container {
+    display: flex;
+    width: 100%;
+    height: 100vh; /* Full viewport height */
+}
+
+.middle {
+    flex: 0 0 10%; /* 10% of the container width */
+    background-color: darkred; /* Optional: Background color for visibility */
+    display: flex;
+    flex-direction: column; /* Stack buttons vertically */
+    gap: 10px; /* Space between buttons */
+    justify-content: center; /* Center items vertically */
+    align-items: center; /* Center items horizontally */
+}
+
+.right {
+    flex: 0 0 45%; /* 45% of the container width */
+}
+.die1, .die2, .die3{
+    width: 200;
+    height: 200px;
+    background-color: white;
+    border: 6px solid black;
+}
+
+.die1{
+    position: absolute;
+    top: 10vh; /* Adjusted from fixed pixels to viewport height */
+    right: 20vw; /* Adjusted from fixed pixels to viewport width */
+    transform: rotate(-45deg);
+}
+
+.die2{
+    position: absolute;
+    top: 40vh; /* Adjusted from fixed pixels to viewport height */
+    right: 5vw; /* Adjusted from fixed pixels to viewport width */
+    transform: rotate(31deg);
+}
+
+.die3{
+    position: absolute;
+    top: 55vh; /* Adjusted from fixed pixels to viewport height */
+    right: 24vw; /* Adjusted from fixed pixels to viewport width */
+    transform: rotate(-32deg);
+}
+
+#numberInput{
+    width: 115px;
+    height: 60px;
+    font-size: 15px;
+    border-style: solid;
+    border-color: #000000;
+    box-sizing: border-box;
+    border-radius: 15px;
+    border-width: 4px;
+    background-color: #ff0000;
+    color: antiquewhite;
+}
+input::placeholder {
+    color: white; /* Change this to your desired color */
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+#menu-btn,#roll-btn,#restart-btn,#bet50,#bet150,#bet250,#betAllIn{
+    width: 120px;
+    height: 50px;
+    font-size: 10px;
+    
+}
+
+#lblCredits{
+    color: #00FF00;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-size: 20px;
+}
+
+#lblBet{
+    color: #00FF00;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-size: 20px;
+}
+
+
+/* CSS */
+#menu-btn,#roll-btn,#restart-btn,#bet50,#bet150,#bet250,#betAllIn {
+  align-items: center;
+  appearance: none;
+  background-clip: padding-box;
+  background-color: initial;
+  background-image: none;
+  border-style: none;
+  box-sizing: border-box;
+  color: #fff;
+  cursor: pointer;
+  display: inline-block;
+  flex-direction: row;
+  flex-shrink: 0;
+  font-family: Eina01,sans-serif;
+  font-size: 16px;
+  font-weight: 800;
+  justify-content: center;
+  line-height: 24px;
+  margin: 0;
+  min-height: 64px;
+  outline: none;
+  overflow: visible;
+  padding: 19px 26px;
+  pointer-events: auto;
+  position: relative;
+  text-align: center;
+  text-decoration: none;
+  text-transform: none;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  vertical-align: middle;
+  word-break: keep-all;
+  z-index: 0;
+}
+
+
+#menu-btn:before,#roll-btn:before,#restart-btn:before,#bet50:before,#bet150:before,#bet250:before,#betAllIn:before,
+#menu-btn:after,#roll-btn:after,#restart-btn:after,#bet50:after,#bet150:after,#bet250:after,#betAllIn:after {
+  border-radius: 30px;
+}
+
+#menu-btn:before,#roll-btn:before,#restart-btn:before,#bet50:before,#bet150:before,#bet250:before,#betAllIn:before {
+  background-image: linear-gradient(92.83deg, #000000 0%, #000000 100%);
+  content: "";
+  display: block;
+  height: 100%;
+  left: 0;
+  overflow: hidden;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  z-index: -2;
+}
+
+#menu-btn:after,#roll-btn:after,#restart-btn:after,#bet50:after,#bet150:after,#bet250:after,#betAllIn:after {
+  background-color: initial;
+  background-image: linear-gradient(#ff0000 0, #ff0000 100%);
+  bottom: 4px;
+  content: "";
+  display: block;
+  left: 4px;
+  overflow: hidden;
+  position: absolute;
+  right: 4px;
+  top: 4px;
+  transition: all 100ms ease-out;
+  z-index: -1;
+}
+
+#menu-btn:hover:not(:disabled):before,#roll-btn:hover:not(:disabled):before,#restart-btn:hover:not(:disabled):before,#bet50:hover:not(:disabled):before,#bet150:hover:not(:disabled):before,#bet250:hover:not(:disabled):before,#betAllIn:hover:not(:disabled):before {
+  background: linear-gradient(92.83deg, rgba(47, 255, 0, 0.608) 50%, rgba(47, 255, 0, 0.603) 50%);
+}
+
+#menu-btn:hover:not(:disabled):after,#roll-btn:hover:not(:disabled):after,#restart-btn:hover:not(:disabled):after,#bet50:hover:not(:disabled):after,#bet150:hover:not(:disabled):after,#bet250:hover:not(:disabled):after,#betAllIn:hover:not(:disabled):after {
+  bottom: 0;
+  left: 0;
+  right: 0;
+  top: 0;
+  transition-timing-function: ease-in;
+  opacity: 0;
+}
