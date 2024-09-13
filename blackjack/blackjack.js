@@ -132,6 +132,8 @@ function shuffleDeck(){
 }
 
 function startGame(){
+    document.getElementById('restart').style.visibility = 'hidden';
+
     let tempImg1 = document.getElementById("tempimg1")
     let tempImg2 = document.getElementById("tempimg2")
     let tempImg3 = document.getElementById("tempimg3")
@@ -143,7 +145,7 @@ function startGame(){
 
     document.getElementById('hit').style.visibility = 'visible';
     document.getElementById('stay').style.visibility = 'visible';
-    document.getElementById('restart').style.visibility = 'visible';
+
 
     //make them grey when disabled or invisible
     document.getElementById('bet50').style.visibility = 'hidden';
@@ -191,8 +193,6 @@ function startGame(){
     
     document.getElementById("hit").addEventListener("click", hit);
     document.getElementById("stay").addEventListener("click", stay);
-    document.getElementById("restart").addEventListener("click", restart);
-    
     
     if(yourSum == 21 && dealerSum == 21){
         bothBlackjack();
@@ -233,6 +233,8 @@ function bothBlackjack(){
 
     document.getElementById('hit').style.visibility = 'hidden';
     document.getElementById('stay').style.visibility = 'hidden';
+    document.getElementById("restart").addEventListener("click", restart);
+    document.getElementById('restart').style.visibility = 'visible'; // move this around and the one above
 
 
 }
@@ -269,6 +271,8 @@ function dealerBlackjack(){
 
     document.getElementById('hit').style.visibility = 'hidden';
     document.getElementById('stay').style.visibility = 'hidden';
+    document.getElementById("restart").addEventListener("click", restart);
+    document.getElementById('restart').style.visibility = 'visible'; // move this around and the one above
 
     liveCredits -= currentbet;
     setCredits(liveCredits);
@@ -297,6 +301,8 @@ function blackjack(){
     liveCredits += currentbet*1.25;
     setCredits(liveCredits);
     console.log(liveCredits);
+    document.getElementById("restart").addEventListener("click", restart);
+    document.getElementById('restart').style.visibility = 'visible'; // move this around and the one above
 }
 
 function restart(){
@@ -360,6 +366,8 @@ function stay(){
 
     document.getElementById('hit').style.visibility = 'hidden';
     document.getElementById('stay').style.visibility = 'hidden';
+    document.getElementById("restart").addEventListener("click", restart);
+    document.getElementById('restart').style.visibility = 'visible'; // move this around and the one above
 
 }
 
@@ -412,6 +420,8 @@ function bust(){
     liveCredits -= currentbet;
     setCredits(liveCredits);
     console.log(liveCredits);
+    document.getElementById("restart").addEventListener("click", restart);
+    document.getElementById('restart').style.visibility = 'visible'; // move this around and the one above
 }
 
 function reduceAce(sum, aceCount){
