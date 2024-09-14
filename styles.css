@@ -21,11 +21,23 @@ body {
     color: antiquewhite;
 }
 
+#games {
+    display: flex; /* Arrange items horizontally */
+    flex-wrap: wrap; /* Allows wrapping of items */
+    justify-content: space-around; /* Space around items */
+    align-items: center; /* Center items vertically */
+    height: 50%; /* Full height of the container */
+    gap: 20px; /* Space between items */
+}
+
 .game-container {
-    position: relative; /* Ensure positioning context */
-    display: inline-block; /* Keep elements inline */
+    display: flex; /* Align items in the container */
+    flex-direction: column; /* Stack items vertically */
+    align-items: center; /* Center items horizontally */
     text-align: center; /* Center-align text */
-    margin-bottom: 20px; /* Add space below each game container */
+    height: 50vh; /* Set height to 50% of the viewport height */
+    justify-content: center; /* Center items vertically within container */
+    width: 220px; /* Set a consistent width for containers */
 }
 
 #blackjack-button, #lucky-dice-button {
@@ -40,36 +52,28 @@ body {
     transition-duration: 0.4s;
     font-size: 30px;
     margin-bottom: 10px; /* Add space below the button */
-    position: relative; /* Change from absolute to relative */
+}
+#lucky-dice-button{
+    margin-bottom: 5vh;
 }
 
-#games {
-    display: flex; /* Arrange items horizontally */
-    justify-content: space-between; /* Space between items */
-    align-items: flex-start; /* Align items to the top */
-}
-
-#welcome-label {
-    position: relative;
-    font-size: 64px;
-}
-
-#choice-label {
-    padding-bottom: 50px;
-}
-
-#cards-img{
+#cards-img, #dices-img {
     margin-top: 10px;
     width: 220px; /* Set width */
     height: auto; /* Adjusts height automatically to maintain aspect ratio */
     pointer-events: none;
 }
 
-#dices-img {
-    margin-top: 40px;
-    width: 220px; /* Set width */
-    height: auto; /* Adjusts height automatically to maintain aspect ratio */
-    pointer-events: none;
+#welcome-label {
+    position: relative;
+    font-size: 64px;
+    top: 5vh; /* Pushes the label down 20% of viewport height */
+}
+
+#choice-label {
+    position: relative;
+    top: 5vh;
+    padding-bottom: 50px;
 }
 
 #blackjack-button:hover, #lucky-dice-button:hover {
@@ -84,6 +88,7 @@ body {
     color: #00FF00;
     font-size: 30px;
 }
+
 #get-credits {
     align-items: center;
     background-clip: padding-box;
@@ -105,7 +110,7 @@ body {
     min-height: 2rem; /* Reduced min-height */
     padding: calc(.5rem - 1px) calc(1rem - 1px); /* Reduced padding */
     position: absolute; /* Changed from relative to absolute */
-    left: 310px; /* Aligns to the left edge of the parent */
+    left: 42.5vh; /* Aligns to the left edge of the parent */
     z-index: 10; /* Added z-index to ensure it is on top */
     text-decoration: none;
     transition: all 250ms;

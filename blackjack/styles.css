@@ -141,7 +141,7 @@ input::placeholder {
 
 #lblCredits{
     position: absolute;
-    right: 350px;
+    right: 50vh;
     top: 55px;
     color: #00FF00;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
@@ -150,7 +150,7 @@ input::placeholder {
 
 #lblBet{
     position: absolute;
-    right: 350px;
+    right: 50vh;
     top: 110px;
     color: #00FF00;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
@@ -198,7 +198,7 @@ html, body {
   min-height: 3rem;
   padding: calc(.875rem - 1px) calc(1.5rem - 1px);
   position: absolute; /* Changed from relative to absolute */
-  left: 310px; /* Aligns to the left edge of the parent */
+  left: 40vh; /* Aligns to the left edge of the parent */
   text-decoration: none;
   transition: all 250ms;
   user-select: none;
