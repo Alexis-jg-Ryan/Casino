@@ -181,6 +181,7 @@ function chiptrain(){
 
 
 function roll(){
+    document.getElementById("roll-btn").removeEventListener("click", roll);
     document.getElementById("db1").replaceChildren();
     document.getElementById("db2").replaceChildren();
     document.getElementById("db3").replaceChildren();
@@ -217,6 +218,7 @@ function roll(){
 
         rollCount++;
         if (rollCount >= maxRolls) {
+            document.getElementById("roll-btn").addEventListener("click", roll);
             displaydots();
             clearInterval(rollingInterval); // Stop changing images after maxRolls
         }
