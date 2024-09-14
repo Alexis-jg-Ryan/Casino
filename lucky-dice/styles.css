@@ -3,7 +3,7 @@ body, html {
     padding: 0;
     height: 100%;
     overflow: hidden; /* Prevents scroll bars from appearing */
-    background-image: url("./casino-table.jpg");
+    background-image: url("./assets/casino-table.jpg");
 }
 
 .left {

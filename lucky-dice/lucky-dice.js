@@ -1,4 +1,4 @@
-import { getCredits, setCredits } from "./../main-menu/shared.js";
+import { getCredits, setCredits } from "./../shared.js";
 
 var liveCredits;
 var currentbet;
@@ -109,7 +109,7 @@ function chipcar(){
         element = null; 
     }
     chipImg = document.createElement("img");
-    chipImg.src = "./pokerchip.png";
+    chipImg.src = "./assets/pokerchip.png";
     chipImg.id = "chip-img"
     document.getElementById("top-left").append(chipImg);
     
@@ -122,7 +122,7 @@ function chipcop(){
         element = null; 
     }
     chipImg = document.createElement("img");
-    chipImg.src = "./pokerchip.png";
+    chipImg.src = "./assets/pokerchip.png";
     chipImg.id = "chip-img"
     document.getElementById("top-right").append(chipImg);
     
@@ -134,7 +134,7 @@ function chipfaucet(){
         element = null; 
     }
     chipImg = document.createElement("img");
-    chipImg.src = "./pokerchip.png";
+    chipImg.src = "./assets/pokerchip.png";
     chipImg.id = "chip-img"
     document.getElementById("middle-left").append(chipImg);
     
@@ -146,7 +146,7 @@ function chiplightbulb(){
         element = null; 
     }else
     chipImg = document.createElement("img");
-    chipImg.src = "./pokerchip.png";
+    chipImg.src = "./assets/pokerchip.png";
     chipImg.id = "chip-img"
     document.getElementById("middle-right").append(chipImg);
     
@@ -159,7 +159,7 @@ function chipring(){
         element = null; 
     }
     chipImg = document.createElement("img");
-    chipImg.src = "./pokerchip.png";
+    chipImg.src = "./assets/pokerchip.png";
     chipImg.id = "chip-img"
     document.getElementById("bottom-left").append(chipImg);
     
@@ -172,7 +172,7 @@ function chiptrain(){
         element = null; 
     }
     chipImg = document.createElement("img");
-    chipImg.src = "./pokerchip.png";
+    chipImg.src = "./assets/pokerchip.png";
     chipImg.id = "chip-img"
     document.getElementById("bottom-right").append(chipImg);
     
@@ -233,15 +233,15 @@ function displaydots(){
     document.getElementById("grid-img6").addEventListener("click", chiptrain);
 
     yellowDotImg1 = document.createElement("img");
-    yellowDotImg1.src = "yellowdot.png";
+    yellowDotImg1.src = "./assets/yellowdot.png";
     yellowDotImg1.id = "yellow-dot"
     
     yellowDotImg2 = document.createElement("img");
-    yellowDotImg2.src = "yellowdot.png";
+    yellowDotImg2.src = "./assets/yellowdot.png";
     yellowDotImg2.id = "yellow-dot"
     
     yellowDotImg3 = document.createElement("img");
-    yellowDotImg3.src = "yellowdot.png";
+    yellowDotImg3.src = "./assets/yellowdot.png";
     yellowDotImg3.id = "yellow-dot"
 
     yellowsdots = [yellowDotImg1, yellowDotImg2, yellowDotImg3];

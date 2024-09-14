@@ -4,7 +4,7 @@ body {
     height: 100%; /* Ensures full height for both body and html */
     text-align: center;
     overflow: hidden; /* Disables scrolling */
-    background-image: url("main-background.jpg");
+    background-image: url("./assets/main-background.jpg");
     background-size: 100% auto;
 }
 
