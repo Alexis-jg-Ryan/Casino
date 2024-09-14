@@ -5,6 +5,10 @@ body{
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 
+.middle{
+  margin-top: 15vh;
+}
+
 #your-text{
     color: rgb(255,255,255);
 }
@@ -206,6 +210,7 @@ html, body {
   touch-action: manipulation;
   vertical-align: baseline;
   width: auto;
+  top: 5vh;
 }
 
 #menu-btn:hover,

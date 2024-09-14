@@ -81,6 +81,7 @@ body, html {
     height: 200px;
     background-color: white;
     border: 6px solid black;
+    pointer-events: none;
 }
 
 #die1{
