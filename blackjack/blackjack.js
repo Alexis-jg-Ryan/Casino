@@ -1,4 +1,4 @@
-import { getCredits, setCredits } from "./../shared.js";
+import { getCredits, setCredits } from "./../main-menu/shared.js";
 
 
 
