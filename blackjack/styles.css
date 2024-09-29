@@ -1,4 +1,5 @@
 body{
+    overflow: hidden;
     text-align: center;
     background-image: url("./background.jpeg");
     background-size: 100% auto;
@@ -6,34 +7,29 @@ body{
 }
 
 .middle{
-  margin-top: 15vh;
+  margin-top: 10vh;
 }
 
 #your-text{
     color: rgb(255,255,255);
 }
 #dealer-text{
+  position: relative;
   color: rgb(255,255,255);
 }
 
-#dealer-cards img{
-    height: 175px;
-    width: 125px;
-    margin: 1px;
+#dealer-cards img, #your-cards img {
+  height: 20vh; 
+  width: 7vw;
+  margin: 0.2vw;/
 }
 
-#your-cards img{
-    height: 175px;
-    width: 125px;
-    margin: 1px;
-}
-
-
-#hit,#stay,#restart,#bet50,#bet150,#bet250,#betAllIn{
-    width: 100px;
-    height: 50px;
-    font-size: 20px;
-    
+#hit, #stay, #restart, #bet50, #bet150, #bet250, #betAllIn {
+  width: 10vw;  
+  height: 5vh;  
+  font-size: 2vh; 
+  position: relative;
+  top: 5vh;
 }
 
 /* CSS */
@@ -122,9 +118,10 @@ body{
 }
 
 #numberInput{
-    width: 100px;
-    height: 60px;
-    font-size: 15px;
+  position: relative;
+    width: 7vw;
+    height: 61px;
+    font-size: 2vh;
     border-style: solid;
     border-color: #000000;
     box-sizing: border-box;
@@ -132,21 +129,22 @@ body{
     border-width: 4px;
     background-color: #ff0000;
     color: antiquewhite;
+    top: 5vh;
 }
 input::placeholder {
     color: white; /* Change this to your desired color */
   }
 
 #results{
-    margin-top: 30px;
+    margin-top: 3vh;
     color: rgb(255,255,255);
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 
 #lblCredits{
     position: absolute;
-    right: 50vh;
-    top: 55px;
+    right: 23vw;
+    top: 8vh;
     color: #00FF00;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     font-size: 20px;
@@ -154,8 +152,8 @@ input::placeholder {
 
 #lblBet{
     position: absolute;
-    right: 50vh;
-    top: 110px;
+    right: 23vw;
+    top: 15vh;
     color: #00FF00;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     font-size: 20px;
@@ -183,6 +181,7 @@ html, body {
 }
 
 #menu-btn {
+  position: absolute;
   align-items: center;
   background-clip: padding-box;
   background-color: #ff0000;
@@ -201,8 +200,8 @@ html, body {
   margin: 0;
   min-height: 3rem;
   padding: calc(.875rem - 1px) calc(1.5rem - 1px);
-  position: absolute; /* Changed from relative to absolute */
-  left: 40vh; /* Aligns to the left edge of the parent */
+  position: absolute; 
+  left: 20vw; 
   text-decoration: none;
   transition: all 250ms;
   user-select: none;
