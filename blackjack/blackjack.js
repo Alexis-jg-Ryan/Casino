@@ -316,8 +316,10 @@ function stay(){
         cardImg.src = "./Flat-Playing-Cards-Set/"+ card + ".png";
         dealerSum += getValue(card);
         dealerAceCount += checkAce(card);
-        document.getElementById("dealer-cards").append(cardImg);
         dealerSum = reduceAce(dealerSum, dealerAceCount);
+
+        document.getElementById("dealer-cards").append(cardImg);
+        console.log(dealerSum);
     }
 
     dealerSum = reduceAce(dealerSum, dealerAceCount);
