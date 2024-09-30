@@ -4,14 +4,9 @@ import { getCredits, setCredits } from "./../shared.js";
 
 var currentbet = 0;
 
-var dealerSum;
-var yourSum = 0;
-
-let you = { yourSum: 0, yourAceCount: 0};
+let you = { Sum: 0, aceCount: 0};
 let dealer = {Sum: 0, aceCount: 0};
 
-var dealerAceCount = 0;
-var yourAceCount = 0;
 
 var hidden;
 var deck;
@@ -133,7 +128,6 @@ function shuffleDeck(){
 }
 
 function startGame(){
-    dealerSum = 0;
     document.getElementById('restart').style.visibility = 'hidden';
 
     let tempImg1 = document.getElementById("tempimg1")
@@ -163,22 +157,22 @@ function startGame(){
     let cardImg = document.createElement("img");
     let card = deck.pop();
     cardImg.src = "./Flat-Playing-Cards-Set/"+ card + ".png";
-    dealerSum += getValue(card);
-    dealerAceCount += checkAce(card);
+    dealer.Sum += getValue(card);
+    dealer.aceCount += checkAce(card);
     document.getElementById("dealer-cards").append(cardImg);
 
-    document.getElementById("dealer-sum").innerText = dealerSum;
+    document.getElementById("dealer-sum").innerText = dealer.Sum;
 
     hidden = deck.pop();
-    dealerSum += getValue(hidden);
-    dealerAceCount += checkAce(hidden);
+    dealer.Sum += getValue(hidden);
+    dealer.aceCount += checkAce(hidden);
     let backimg = document.createElement("img");
     backimg.src = "./Flat-Playing-Cards-Set/back.png";
     backimg.id = "hidden"
     document.getElementById("dealer-cards").append(backimg);
-    dealerSum = reduceAce(dealerSum, dealerAceCount);
+    dealer.Sum = reduceAce(dealer);
     
-    console.log("start game" + dealerSum);
+    console.log("start game" + dealer.Sum);
 
     
     
@@ -186,44 +180,44 @@ function startGame(){
         let cardImg = document.createElement("img");
         let card = deck.pop();
         cardImg.src = "./Flat-Playing-Cards-Set/"+ card + ".png";
-        yourSum += getValue(card);
-        yourAceCount += checkAce(card);
+        you.Sum += getValue(card);
+        you.aceCount += checkAce(card);
         document.getElementById("your-cards").append(cardImg);
     }
 
-    document.getElementById("your-sum").innerText = reduceAce(yourSum,yourAceCount);
+    document.getElementById("your-sum").innerText = reduceAce(you);
     
     document.getElementById("hit").addEventListener("click", hit);
     document.getElementById("stay").addEventListener("click", stay);
     
-    if(yourSum == 21 && dealerSum == 21){
+    if(you.Sum == 21 && dealer.Sum == 21){
         bothBlackjack();
     }
-    else if(yourSum == 21){
+    else if(you.Sum == 21){
         blackjack();
-    }else if (dealerSum == 21){
+    }else if (dealer.Sum == 21){
         dealerBlackjack();
     }
 }
 function bothBlackjack(){
-    while(dealerSum < 17){
+    while(dealer.Sum < 17){
         let cardImg = document.createElement("img");
         let card = deck.pop();
         cardImg.src = "./Flat-Playing-Cards-Set/"+ card + ".png";
-        dealerSum += getValue(card);
-        dealerAceCount += checkAce(card);
+        dealer.Sum += getValue(card);
+        dealer.aceCount += checkAce(card);
         document.getElementById("dealer-cards").append(cardImg);
     }
-    dealerSum = reduceAce(dealerSum, dealerAceCount);
-    yourSum = reduceAce(yourSum, yourAceCount);
+    dealer.Sum = reduceAce(dealer);
+    you.Sum = reduceAce(you);
 
     canHit = false;
     document.getElementById("hidden").src = "./Flat-Playing-Cards-Set/" + hidden + ".png";
 
     let message = "Push! ";
     document.getElementById("results").innerText = message;
-    document.getElementById("dealer-sum").innerText = dealerSum;
-    document.getElementById("your-sum").innerText = yourSum;
+    document.getElementById("dealer-sum").innerText = dealer.Sum;
+    document.getElementById("your-sum").innerText = you.Sum;
 
     document.getElementById("hit").removeEventListener("click", hit);
     document.getElementById("stay").removeEventListener("click", stay);
@@ -241,27 +235,27 @@ function bothBlackjack(){
 
 }
 function dealerBlackjack(){
-    while(dealerSum < 17){
+    while(dealer.Sum < 17){
         let cardImg = document.createElement("img");
         let card = deck.pop();
         cardImg.src = "./Flat-Playing-Cards-Set/"+ card + ".png";
-        dealerSum += getValue(card);
-        dealerAceCount += checkAce(card);
+        dealer.Sum += getValue(card);
+        dealer.aceCount += checkAce(card);
         document.getElementById("dealer-cards").append(cardImg);
     }
 
     let message="Dealer Blackjack :("
     
     document.getElementById("results").innerText = message;
-    document.getElementById("dealer-sum").innerText = dealerSum;
+    document.getElementById("dealer-sum").innerText = dealer.Sum;
 
     canHit = false;
     document.getElementById("hidden").src = "./Flat-Playing-Cards-Set/" + hidden + ".png";
 
     message = "Dealer got BlackJack! !";
     document.getElementById("results").innerText = message;
-    document.getElementById("dealer-sum").innerText = dealerSum;
-    document.getElementById("your-sum").innerText = yourSum;
+    document.getElementById("dealer-sum").innerText = dealer.Sum;
+    document.getElementById("your-sum").innerText = you.Sum;
 
     document.getElementById("hit").removeEventListener("click", hit);
     document.getElementById("stay").removeEventListener("click", stay);
@@ -281,13 +275,13 @@ function dealerBlackjack(){
 }
 
 function blackjack(){
-    yourSum = reduceAce(yourSum, yourAceCount);
+    you.Sum = reduceAce(you);
 
     canHit = false;
 
     let message = "BlackJack! !";
     document.getElementById("results").innerText = message;
-    document.getElementById("your-sum").innerText = yourSum;
+    document.getElementById("your-sum").innerText = you.Sum;
 
     document.getElementById("hit").removeEventListener("click", hit);
     document.getElementById("stay").removeEventListener("click", stay);
@@ -310,52 +304,52 @@ function restart(){
 }
 
 function stay(){
-    while(dealerSum < 17){
+    while(dealer.Sum < 17){
         let cardImg = document.createElement("img");
         let card = deck.pop();
         cardImg.src = "./Flat-Playing-Cards-Set/"+ card + ".png";
-        dealerSum += getValue(card);
-        dealerAceCount += checkAce(card);  
-        dealerSum = reduceAce(dealerSum, dealerAceCount);
+        dealer.Sum += getValue(card);
+        dealer.aceCount += checkAce(card);  
+        dealer.Sum = reduceAce(dealer);
         document.getElementById("dealer-cards").append(cardImg);
-        console.log("after card " + dealerSum)
+        console.log("after card " + dealer.Sum)
     }
 
-    dealerSum = reduceAce(dealerSum, dealerAceCount);
-    yourSum = reduceAce(yourSum, yourAceCount);
+    dealer.Sum = reduceAce(dealer);
+    you.Sum = reduceAce(you);
 
     canHit = false;
     document.getElementById("hidden").src = "./Flat-Playing-Cards-Set/" + hidden + ".png";
 
     let message = "";
-    if (yourSum > dealerSum){
+    if (you.Sum > dealer.Sum){
         message = "You win !";
         liveCredits += currentbet;
         setCredits(liveCredits);
 
-    }else if(yourSum == 21){
+    }else if(you.Sum == 21){
         message = "You Win !"
         liveCredits += currentbet;
         setCredits(liveCredits);
 
-    }else if(yourSum == 21 && dealerSum == 21){
+    }else if(you.Sum == 21 && dealer.Sum == 21){
         message = "Push !"
-    }else if(dealerSum > 21){ 
+    }else if(dealer.Sum > 21){ 
         message = "dealer went over !";
         liveCredits += currentbet;
         setCredits(liveCredits); 
 
-    }else if(yourSum == dealerSum){
+    }else if(you.Sum == dealer.Sum){
         message = "Push!";
-    }else if (yourSum < dealerSum){
+    }else if (you.Sum < dealer.Sum){
         message = "You lose !";
         liveCredits -= currentbet;
         setCredits(liveCredits);
 
     }
     document.getElementById("results").innerText = message;
-    document.getElementById("dealer-sum").innerText = dealerSum;
-    document.getElementById("your-sum").innerText = yourSum;
+    document.getElementById("dealer-sum").innerText = dealer.Sum;
+    document.getElementById("your-sum").innerText = you.Sum;
 
     document.getElementById("hit").removeEventListener("click", hit);
     document.getElementById("stay").removeEventListener("click", stay);
@@ -373,7 +367,7 @@ function stay(){
 }
 
 function hit() {
-    let reduceAceResult = reduceAce(yourSum, yourAceCount);
+    let reduceAceResult = reduceAce(you);
     if(reduceAceResult < 21){
         canHit = true;
     }else{
@@ -387,15 +381,15 @@ function hit() {
         let cardImg = document.createElement("img");
         let card = deck.pop();
         cardImg.src = "./Flat-Playing-Cards-Set/"+ card + ".png";
-        yourSum += getValue(card);
-        yourAceCount += checkAce(card);
+        you.Sum += getValue(card);
+        you.aceCount += checkAce(card);
         document.getElementById("your-cards").append(cardImg);
 
-        document.getElementById("your-sum").innerText = reduceAce(yourSum, yourAceCount);
+        document.getElementById("your-sum").innerText = reduceAce(you);
 
     }
 
-    reduceAceResult = reduceAce(yourSum, yourAceCount)
+    reduceAceResult = reduceAce(you)
     if(reduceAceResult == 21){
         stay();
     }else if(reduceAceResult > 21){
@@ -417,19 +411,19 @@ function bust(){
 
     let message = "You busted !";
     document.getElementById("results").innerText = message;
-    document.getElementById("your-sum").innerText = reduceAce(yourSum, yourAceCount);
+    document.getElementById("your-sum").innerText = reduceAce(you);
     liveCredits -= currentbet;
     setCredits(liveCredits);
     document.getElementById("restart").addEventListener("click", restart);
     document.getElementById('restart').style.visibility = 'visible'; // move this around and the one above
 }
 
-function reduceAce(sum, aceCount){
-    while(sum > 21 && aceCount > 0){
-        sum-=10;
-        aceCount -=1;
+function reduceAce(player) {
+    while (player.Sum > 21 && player.aceCount > 0) {
+        player.Sum -= 10;
+        player.aceCount -= 1;
     }
-    return sum;
+    return player.Sum;
 }
 
 function getValue(card) {
