@@ -437,22 +437,16 @@ function reduceAce(sum, aceCount){
     return sum;
 }
 
-function getValue(card){
-    let data = card.split("");
-    // console.log(data)
-    let value = data[0];
-    if (data.length > 2){
+function getValue(card) {
+    let value = card.substring(0, card.length - 1); // Isolate the rank (e.g., "10", "A", "K")
+    
+    if (value === "K" || value === "Q" || value === "J") {
         return 10;
     }
-
-    if (isNaN(value)){
-        if(value == "A"){
-            return 11;
-        }else{
-            return 10;
-        }
+    if (value === "A") {
+        return 11; // Ace initially counts as 11
     }
-    return parseInt(value);
+    return parseInt(value); // Handles number cards (2-10)
 }
 
 function checkAce(card){
