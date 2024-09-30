@@ -4,8 +4,11 @@ import { getCredits, setCredits } from "./../shared.js";
 
 var currentbet = 0;
 
-var dealerSum = 0;
+var dealerSum;
 var yourSum = 0;
+
+let you = { yourSum: 0, yourAceCount: 0};
+let dealer = {Sum: 0, aceCount: 0};
 
 var dealerAceCount = 0;
 var yourAceCount = 0;
@@ -18,8 +21,6 @@ var canHit = false; //allows player to hit, playersum < 21
 
 window.onload = function(){
     liveCredits = getCredits();
-    console.log(liveCredits);
-    
     buildVisuals();
     buildDeck();
     shuffleDeck();
@@ -132,6 +133,7 @@ function shuffleDeck(){
 }
 
 function startGame(){
+    dealerSum = 0;
     document.getElementById('restart').style.visibility = 'hidden';
 
     let tempImg1 = document.getElementById("tempimg1")
@@ -155,9 +157,6 @@ function startGame(){
     document.getElementById('numberInput').style.visibility = 'hidden'; //broken
 
 
-
-
-
     document.getElementById('bet-ammount').innerText = currentbet;
 
 
@@ -177,6 +176,9 @@ function startGame(){
     backimg.src = "./Flat-Playing-Cards-Set/back.png";
     backimg.id = "hidden"
     document.getElementById("dealer-cards").append(backimg);
+    dealerSum = reduceAce(dealerSum, dealerAceCount);
+    
+    console.log("start game" + dealerSum);
 
     
     
@@ -276,7 +278,6 @@ function dealerBlackjack(){
 
     liveCredits -= currentbet;
     setCredits(liveCredits);
-    console.log(liveCredits);
 }
 
 function blackjack(){
@@ -300,7 +301,6 @@ function blackjack(){
 
     liveCredits += currentbet*1.25;
     setCredits(liveCredits);
-    console.log(liveCredits);
     document.getElementById("restart").addEventListener("click", restart);
     document.getElementById('restart').style.visibility = 'visible'; // move this around and the one above
 }
@@ -315,14 +315,10 @@ function stay(){
         let card = deck.pop();
         cardImg.src = "./Flat-Playing-Cards-Set/"+ card + ".png";
         dealerSum += getValue(card);
-        dealerAceCount += checkAce(card);
-        while(reduceAce(dealerSum) != dealerSum){
-            dealerSum = reduceAce(dealerSum, dealerAceCount);
-        }
-        
+        dealerAceCount += checkAce(card);  
         dealerSum = reduceAce(dealerSum, dealerAceCount);
         document.getElementById("dealer-cards").append(cardImg);
-        console.log(dealerSum);
+        console.log("after card " + dealerSum)
     }
 
     dealerSum = reduceAce(dealerSum, dealerAceCount);
@@ -336,26 +332,26 @@ function stay(){
         message = "You win !";
         liveCredits += currentbet;
         setCredits(liveCredits);
-        console.log(liveCredits);
+
     }else if(yourSum == 21){
         message = "You Win !"
         liveCredits += currentbet;
         setCredits(liveCredits);
-        console.log(liveCredits);  
+
     }else if(yourSum == 21 && dealerSum == 21){
         message = "Push !"
     }else if(dealerSum > 21){ 
         message = "dealer went over !";
         liveCredits += currentbet;
         setCredits(liveCredits); 
-        console.log(liveCredits);
+
     }else if(yourSum == dealerSum){
         message = "Push!";
     }else if (yourSum < dealerSum){
         message = "You lose !";
         liveCredits -= currentbet;
         setCredits(liveCredits);
-        console.log(liveCredits);
+
     }
     document.getElementById("results").innerText = message;
     document.getElementById("dealer-sum").innerText = dealerSum;
@@ -396,7 +392,7 @@ function hit() {
         document.getElementById("your-cards").append(cardImg);
 
         document.getElementById("your-sum").innerText = reduceAce(yourSum, yourAceCount);
-        // console.log(cardImg.src)
+
     }
 
     reduceAceResult = reduceAce(yourSum, yourAceCount)
@@ -424,7 +420,6 @@ function bust(){
     document.getElementById("your-sum").innerText = reduceAce(yourSum, yourAceCount);
     liveCredits -= currentbet;
     setCredits(liveCredits);
-    console.log(liveCredits);
     document.getElementById("restart").addEventListener("click", restart);
     document.getElementById('restart').style.visibility = 'visible'; // move this around and the one above
 }
@@ -439,15 +434,15 @@ function reduceAce(sum, aceCount){
 
 function getValue(card) {
     let value = card.substring(0, card.length - 1); // Isolate the rank (e.g., "10", "A", "K")
-    console.log(value)
-    if (value === "K" || value === "Q" || value === "J" || value === "10") {
-        return 10;
-    }
-    if (value === "A") {
+    console.log("Get value: " + value);
+    if (value < 10 && value >=2){
+        return parseInt(value)
+    }else if (value == "A") {
         return 11; // Ace initially counts as 11
     }
-    console.log(parseInt(value)) //look at this when you have the time
-    return parseInt(value); // Handles number cards (2-9)
+    else{
+        return 10;
+    }
 }
 
 function checkAce(card){
