@@ -439,7 +439,7 @@ function reduceAce(sum, aceCount){
 
 function getValue(card) {
     let value = card.substring(0, card.length - 1); // Isolate the rank (e.g., "10", "A", "K")
-    
+    console.log(value)
     if (value === "K" || value === "Q" || value === "J") {
         return 10;
     }
