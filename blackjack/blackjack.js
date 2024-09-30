@@ -446,6 +446,7 @@ function getValue(card) {
     if (value === "A") {
         return 11; // Ace initially counts as 11
     }
+    console.log(parseInt(value)) //look at this when you have the time
     return parseInt(value); // Handles number cards (2-10)
 }
 
