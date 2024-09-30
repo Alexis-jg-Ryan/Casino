@@ -440,14 +440,14 @@ function reduceAce(sum, aceCount){
 function getValue(card) {
     let value = card.substring(0, card.length - 1); // Isolate the rank (e.g., "10", "A", "K")
     console.log(value)
-    if (value === "K" || value === "Q" || value === "J") {
+    if (value === "K" || value === "Q" || value === "J" || value === "10") {
         return 10;
     }
     if (value === "A") {
         return 11; // Ace initially counts as 11
     }
     console.log(parseInt(value)) //look at this when you have the time
-    return parseInt(value); // Handles number cards (2-10)
+    return parseInt(value); // Handles number cards (2-9)
 }
 
 function checkAce(card){
